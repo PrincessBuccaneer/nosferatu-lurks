@@ -7,7 +7,7 @@ import nme.display.BitmapData;
 import nme.display.Shape;
 import nme.geom.Matrix;
 import nme.geom.Point;
-import flash.display.BlendMode;
+import nme.display.BlendMode;
 import com.haxepunk.HXP;
 import nme.geom.Rectangle;
 

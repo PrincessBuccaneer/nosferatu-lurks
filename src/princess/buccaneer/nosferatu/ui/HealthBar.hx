@@ -4,7 +4,7 @@ import com.haxepunk.HXP;
 import nme.display.Shape;
 
 import princess.buccaneer.nosferatu.entities.PlayerEntity;
-import princess.buccaneer.nosferatu.GameWorld;
+import princess.buccaneer.nosferatu.worlds.GameWorld;
 
 /**
  * ...
@@ -27,7 +27,7 @@ class HealthBar extends Entity {
 		var health = player.health;
 		var s:Shape = new Shape();
 		s.graphics.beginFill(0xCC0000);
-		s.graphics.drawRect(x, y, width, height * (health / 100));
+		s.graphics.drawRect(x, y + height * (1 - health/100), width, height * (health / 100));
 		s.graphics.endFill();
 		HXP.buffer.draw(s);
 	}

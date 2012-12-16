@@ -1,12 +1,16 @@
-package princess.buccaneer.nosferatu;
+package princess.buccaneer.nosferatu.worlds;
 import com.haxepunk.HXP;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.tmx.TmxObjectGroup;
 import com.haxepunk.World;
+import com.haxepunk.Entity;
 import nme.geom.Rectangle;
 import princess.buccaneer.nosferatu.ai.FollowPolygonBehavior;
 import princess.buccaneer.nosferatu.ai.FollowPolylineBehavior;
+import princess.buccaneer.nosferatu.ai.StationaryBehavior;
 import princess.buccaneer.nosferatu.ui.HealthBar;
+import princess.buccaneer.nosferatu.ui.TextDisplay;
+import princess.buccaneer.nosferatu.ui.LevelComplete;
 
 import princess.buccaneer.nosferatu.lighting.LitWorld;
 import princess.buccaneer.nosferatu.lighting.FloodLight;
@@ -18,16 +22,22 @@ import princess.buccaneer.nosferatu.entities.EnemyEntity;
  * @author Princess Buccaneer */
 class GameWorld extends LitWorld {
 	
-	public static var world;
+	public static var world: GameWorld;
 
 	var tiles: TmxEntity;
 	public var player: PlayerEntity;
 	public var enemies: Array<EnemyEntity>;
+	
+	override public function begin() {
+		super.begin();
+		world = this;
+		add(new SoundManager());
+		add(player);
+		add(new HealthBar());
+	}
 
 	public function new(mapData:Dynamic) {
 		super();
-		world = this;
-		add(new SoundManager());
 		
 		enemies = new Array<EnemyEntity>();
 		tiles = new TmxEntity(mapData);
@@ -57,12 +67,13 @@ class GameWorld extends LitWorld {
 						var enemy = new EnemyEntity();
 						enemy.x = object.x;
 						enemy.y = object.y;
-						enemy.xdirection = Std.parseFloat(
-							object.custom.resolve("xdirection") != null ? object.custom.resolve("xdirection") : "");
-						enemy.ydirection = Std.parseFloat(
-							object.custom.resolve("ydirection") != null ? object.custom.resolve("ydirection") : "");
+						enemy.xdirection = Std.parseFloat(object.custom.xdirection != null ? object.custom.xdirection : "");
+						enemy.ydirection = Std.parseFloat(object.custom.ydirection != null ? object.custom.ydirection : "");
+						enemy.behavior = new StationaryBehavior();
 						enemies.push(enemy);
 						add(enemy);
+					case "text":
+						add(new TextDisplay(object.custom.text));
 				}
 			}
 			for (polygon in objectGroup.polygons) {
@@ -97,13 +108,15 @@ class GameWorld extends LitWorld {
 			trace("ERROR: no player! creating one at (0,0)");
 			player = new PlayerEntity();
 		}
-
-		add(player);
-		add(new HealthBar());
 	}
 	
-	public function createEnemiesFromPaths(objects: TmxObjectGroup) {
-		
+	override public function update() {
+		super.update();
+		var entities: Array<Entity> = new Array<Entity>();
+		getAll(entities);
+		for (entity in entities)
+			if (Std.is(entity, EnemyEntity) || Std.is(entity, LevelComplete)) return;
+		LevelManager.complete();
 	}
 	
 }

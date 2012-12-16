@@ -10,6 +10,9 @@ import flash.display.StageQuality;
 import flash.display.StageScaleMode;
 import flash.events.Event;
 
+import princess.buccaneer.nosferatu.worlds.GameWorld;
+import princess.buccaneer.nosferatu.worlds.SplashScreenWorld;
+
 /** @author Princess Buccaneer */
 class Main extends Engine {
 	
@@ -26,21 +29,19 @@ class Main extends Engine {
 	override function init() {
 	#if debug
 		#if flash
+		org.flashdevelop.utils.FlashConnect.redirect();
 		if (flash.system.Capabilities.isDebugger)
 		#end
 		{
 			HXP.console.enable();
 			HXP.console.toggleKey = Key.P;
 		}
-	#end
-		org.flashdevelop.utils.FlashConnect.redirect();
-		HXP.screen.color = clearColor;
-	#if debug
-		HXP.world = new GameWorld("maps/level01.tmx");
+		HXP.world = LevelManager.startWorld;
 	#else
 		HXP.world = new SplashScreenWorld();
 	#end
 		
+		HXP.screen.color = clearColor;
 		setStageProperties();
 		setupInput();
 	}

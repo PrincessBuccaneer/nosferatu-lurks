@@ -3,9 +3,9 @@ import com.haxepunk.Entity;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
-import flash.display.BlendMode;
-import flash.Vector;
-import flash.display.BitmapData;
+
+import nme.display.BlendMode;
+import nme.display.BitmapData;
 
 /** @author Princess Buccaneer */
 class Lighting extends Entity {

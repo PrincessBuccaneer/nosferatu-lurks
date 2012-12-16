@@ -1,4 +1,4 @@
-package princess.buccaneer.nosferatu;
+package princess.buccaneer.nosferatu.worlds;
 
 import com.haxepunk.graphics.Image;
 import com.haxepunk.Sfx;

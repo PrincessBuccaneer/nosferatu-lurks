@@ -1,10 +1,12 @@
-package princess.buccaneer.nosferatu;
+package princess.buccaneer.nosferatu.worlds;
 
 import com.haxepunk.graphics.Image;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
 import com.haxepunk.World;
+
+import princess.buccaneer.nosferatu.LevelManager;
 
 /**
  * A world which displays the main game menu.
@@ -22,7 +24,7 @@ class MainMenuWorld extends World {
 	
 	override public function update() {
 				if (Input.mousePressed || Input.check(Key.ANY))
-					HXP.world = new GameWorld("maps/level01.tmx");
+					HXP.world = LevelManager.startWorld;
 	}
 	
 }
