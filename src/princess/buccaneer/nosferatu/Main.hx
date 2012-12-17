@@ -57,8 +57,8 @@ class Main extends Engine {
 		HXP.stage.quality = StageQuality.HIGH;
 		HXP.stage.scaleMode = StageScaleMode.NO_SCALE;
 		HXP.stage.displayState = StageDisplayState.NORMAL;
-
-		resize();
+		
+		HXP.resize(800, 480);
 
 		HXP.stage.addEventListener(Event.ACTIVATE, function (e:Event) {
 			HXP.focused = true;
