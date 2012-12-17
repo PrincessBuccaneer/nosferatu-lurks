@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tilemap" tilewidth="32" tileheight="32">
+  <image source="../gfx/tilemap.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="65" name="solid32" tilewidth="32" tileheight="32">
+  <image source="../../../solid32.png" width="64" height="32"/>
+ </tileset>
+ <layer name="main" width="25" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYETDMIAujg0TA0DqmJAwuh1MePBItANmFrb4GC52MOJQQ2m6wobJcT8uO4jBlNpBK38QCmNy8/coGJwAAGA1AN8=
+  </data>
+ </layer>
+ <layer name="collide" width="25" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxzYmBgcELDMIAujg0TA9DVodtBit6RYIcTFvZwswM9DVErXRFKo8SaTa56athBK38QCmNy8/coGJwAABMoFB0=
+  </data>
+ </layer>
+ <objectgroup name="objects" width="25" height="15">
+  <object type="player" gid="3" x="43" y="59"/>
+  <object type="enemy_path" x="36" y="98">
+   <polyline points="0,0 64,0"/>
+  </object>
+  <object type="enemy_path" x="100" y="99">
+   <polyline points="0,0 -64,0"/>
+  </object>
+  <object type="enemy" gid="4" x="56" y="153">
+   <properties>
+    <property name="xdirection" value="0"/>
+    <property name="ydirection" value="1"/>
+   </properties>
+  </object>
+  <object type="light" gid="5" x="188" y="288">
+   <properties>
+    <property name="radius" value="64"/>
+   </properties>
+  </object>
+  <object gid="4" x="248" y="56"/>
+  <object type="enemy" gid="4" x="248" y="56">
+   <properties>
+    <property name="xdirection" value="1"/>
+    <property name="ydirection" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" gid="4" x="248" y="79">
+   <properties>
+    <property name="xdirection" value="0.2"/>
+    <property name="ydirection" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" gid="4" x="271" y="54">
+   <properties>
+    <property name="xdirection" value="1"/>
+    <property name="ydirection" value="0.2"/>
+   </properties>
+  </object>
+  <object type="enemy" gid="4" x="315" y="249">
+   <properties>
+    <property name="xdirection" value="0.2"/>
+    <property name="ydirection" value="1"/>
+   </properties>
+  </object>
+  <object type="enemy" gid="4" x="375" y="246">
+   <properties>
+    <property name="xdirection" value="-0.2"/>
+    <property name="ydirection" value="1"/>
+   </properties>
+  </object>
+  <object type="light" gid="5" x="429" y="177">
+   <properties>
+    <property name="radius" value="96"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="paths" width="25" height="15"/>
+</map>

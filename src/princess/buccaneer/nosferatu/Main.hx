@@ -36,7 +36,7 @@ class Main extends Engine {
 			HXP.console.enable();
 			HXP.console.toggleKey = Key.P;
 		}
-		HXP.world = LevelManager.startWorld;
+		HXP.world = new GameWorld(LevelManager.levelNames[LevelManager.levelNames.length - 1]);
 	#else
 		HXP.world = new SplashScreenWorld();
 	#end

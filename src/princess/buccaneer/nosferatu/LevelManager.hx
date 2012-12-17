@@ -15,10 +15,13 @@ import princess.buccaneer.nosferatu.worlds.GameWorld;
 
 class LevelManager {
 	
-	static var levelNames: Array<String> = [
+	public static var levelNames: Array<String> = [
 		"maps/tutorial01.tmx",
 		"maps/tutorial02.tmx",
-		"maps/level01.tmx"
+		"maps/level01.tmx",
+		"maps/level02.tmx",
+		"maps/level03.tmx",
+		"maps/level04.tmx"
 	];
 	static var levelIndex: Int = 0;
 	

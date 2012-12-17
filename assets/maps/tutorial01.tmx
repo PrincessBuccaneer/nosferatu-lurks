@@ -11,28 +11,13 @@
    eJxjZGBgYCQCUwJA+pkI4FE7EHZgw9S0A5e9o3YMLjuomQdHwcgDAPb7AHM=
   </data>
  </layer>
- <layer name="decoration3" width="25" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMNwAAAXcAAE=
-  </data>
- </layer>
- <layer name="decoration2" width="25" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYGBg4CaAKQVcRKjhGbUDDjixYGrbgQ7Q/TZqx8DaAQK44n8UjAJiAACVcwFH
-  </data>
- </layer>
- <layer name="decoration" width="25" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFgx1wDbQDRsEoGAVDDgAAMAwACw==
-  </data>
- </layer>
  <layer name="collide" width="25" height="15">
   <data encoding="base64" compression="zlib">
    eJxzYmBgcCICUwKI0T9qB0I/ofCn1A5c9o7aMbjsoGYeHAUjDwAA3SUJSQ==
   </data>
  </layer>
  <objectgroup name="objects" width="25" height="15">
-  <object type="player" gid="3" x="61" y="88"/>
+  <object type="player" gid="3" x="82" y="66"/>
   <object type="light" gid="5" x="257" y="65">
    <properties>
     <property name="color" value="16777164"/>
@@ -47,7 +32,13 @@
   </object>
   <object type="text" x="80" y="233">
    <properties>
-    <property name="text" value="Pounce on your victims to kill them!"/>
+    <property name="text" value="See that creepy red guy on the left? That's you."/>
+   </properties>
+  </object>
+  <object type="light" gid="5" x="31" y="61">
+   <properties>
+    <property name="color" value="16777164"/>
+    <property name="radius" value="64"/>
    </properties>
   </object>
  </objectgroup>

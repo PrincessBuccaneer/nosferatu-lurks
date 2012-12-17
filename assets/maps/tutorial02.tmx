@@ -26,9 +26,9 @@
    eJxjYBgFo2AUjIJRMNwAAAXcAAE=
   </data>
  </layer>
- <layer name="collide" width="25" height="15" visible="0">
+ <layer name="collide" width="25" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMNwAAAXcAAE=
+   eJxzYmBgcKICxgewyePSh0+cVDtIBYPVDlqEFTFxSUmcE7IbF58agJwwGbWDtnZQK/2MAuIBAG+0EYk=
   </data>
  </layer>
  <objectgroup name="objects" width="25" height="15">
@@ -48,6 +48,18 @@
    <properties>
     <property name="color" value="16777164"/>
     <property name="radius" value="64"/>
+   </properties>
+  </object>
+  <object type="light" gid="5" x="270" y="211">
+   <properties>
+    <property name="color" value="16777164"/>
+    <property name="radius" value="64"/>
+   </properties>
+  </object>
+  <object type="enemy" gid="4" x="255" y="103">
+   <properties>
+    <property name="xdirection" value="1"/>
+    <property name="ydirection" value="0"/>
    </properties>
   </object>
  </objectgroup>

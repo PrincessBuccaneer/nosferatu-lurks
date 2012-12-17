@@ -17,7 +17,7 @@ import princess.buccaneer.nosferatu.worlds.GameWorld;
  * @author Princess Buccaneer */
 class PlayerEntity extends WalkingEntity {
 		
-	static var attackTime: Float = 0.125; // seconds
+	static var attackTime: Float = 0.2; // seconds
 	static var attackRechargeTime: Float = 1; // seconds
 	var painSound: Sfx;
 	
@@ -69,7 +69,7 @@ class PlayerEntity extends WalkingEntity {
 		}
 		
 		if (Lighting.canvas != null) {
-			var rawLight: Int = Lighting.canvas.getPixel(Std.int(x), Std.int(y));
+			var rawLight: Int = Lighting.canvas.getPixel(Std.int(x + halfWidth), Std.int(y + halfHeight));
 			var brightness: Int = (rawLight & 0xFF) + (rawLight >>> 8) & 0xFF + (rawLight >>> 16) & 0xFF;
 			if (brightness > 37) {
 				health -= Std.int(brightness * HXP.elapsed);
@@ -100,6 +100,7 @@ class PlayerEntity extends WalkingEntity {
 
 		var v = new Point();
 		var gridSize = 32;
+		
 		var targetSpeed = Input.check("Slow") ? maxSpeed / 6 : maxSpeed / 2;
 		
 		if (Input.check("Left")) {
